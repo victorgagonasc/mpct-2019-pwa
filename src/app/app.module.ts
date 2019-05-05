@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { OrderDialogComponent } from './pages/order-dialog/order-dialog.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { OrderDialogComponent } from './pages/order-dialog/order-dialog.componen
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent],
