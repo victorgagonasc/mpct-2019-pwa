@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

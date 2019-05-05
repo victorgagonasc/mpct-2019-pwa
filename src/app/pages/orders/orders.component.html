@@ -1,0 +1,49 @@
+<mat-toolbar>
+  <button mat-raised-button color="primary">
+    <span>Novo Pedido</span>
+  </button>
+</mat-toolbar>
+
+<mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
+
+<ng-container *ngIf=!loading>
+  <mat-list *ngFor="let order of orders; let i = index" class="list-padding">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="i == 0">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>{{ order.item }}</b>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <h3 mat-subheader>Detalhes</h3>
+          <mat-list-item>
+            <mat-icon mat-list-icon>attach_money</mat-icon>
+            <h4 mat-line>Preço</h4>
+            <p mat-line>R$ {{ order.price | number : '1.2-2' }}</p>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon mat-list-icon>av_timer</mat-icon>
+            <h4 mat-line>Tempo de preparo</h4>
+            <p mat-line>{{ order.timeToGetReady}} minutos</p>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon mat-list-icon>calendar_today</mat-icon>
+            <h4 mat-line>Data</h4>
+            <p mat-line>{{ order.date | date: 'dd/MM/yyyy HH:mm' }}</p>
+          </mat-list-item>
+        </mat-list>
+        <mat-action-row>
+          <mat-menu #appMenu="matMenu">
+            <button mat-menu-item>Editar</button>
+            <button mat-menu-item>Deletar</button>
+          </mat-menu>
+
+          <button mat-button [matMenuTriggerFor]="appMenu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-list>
+</ng-container>
