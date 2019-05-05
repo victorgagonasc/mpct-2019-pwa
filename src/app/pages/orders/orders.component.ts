@@ -10,7 +10,7 @@ import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 })
 export class OrdersComponent implements OnInit {
   private orders: Order[] = [];
-  private loading = false;
+  public loading = false;
 
   constructor(
     private api: ApiService,
