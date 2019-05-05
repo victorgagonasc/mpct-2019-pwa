@@ -1,0 +1,22 @@
+<div mat-dialog-content>
+  <p>
+    <mat-form-field>
+      <input matInput placeholder="Item" [(ngModel)]="data.order.item">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input matInput placeholder="Preço" [(ngModel)]="data.order.price">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input matInput placeholder="Tempo de espera" [(ngModel)]="data.order.timeToGetReady">
+    </mat-form-field>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data"
+    cdkFocusInitial [disabled]="data.order == oldOrder">{{ data.method == 'add' ? 'Salvar' : 'Atualizar' }}</button>
+</div>

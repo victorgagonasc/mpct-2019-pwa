@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <button mat-raised-button color="primary">
+  <button mat-raised-button color="primary" (click)="openDialog('add')">
     <span>Novo Pedido</span>
   </button>
 </mat-toolbar>
@@ -35,8 +35,8 @@
         </mat-list>
         <mat-action-row>
           <mat-menu #appMenu="matMenu">
-            <button mat-menu-item>Editar</button>
-            <button mat-menu-item>Deletar</button>
+            <button mat-menu-item (click)="openDialog('update', order)">Editar</button>
+            <button mat-menu-item (click)="deleteOrder(order)">Deletar</button>
           </mat-menu>
 
           <button mat-button [matMenuTriggerFor]="appMenu">
