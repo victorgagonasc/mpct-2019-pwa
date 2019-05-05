@@ -9,14 +9,12 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class OrderDialogComponent {
   orderForm: FormGroup;
-  oldOrder = null;
 
   constructor(
     public dialogRef: MatDialogRef<OrderDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data) {
       if (!data.order) {
         data.order = { id: null, item: '', price: null, timeToGetReady: null };
-        this.oldOrder = data.order;
       }
     }
 

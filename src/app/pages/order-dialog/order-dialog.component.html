@@ -18,5 +18,5 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onCancelClick()">Cancelar</button>
   <button mat-button [mat-dialog-close]="data"
-    cdkFocusInitial [disabled]="data.order == oldOrder">{{ data.method == 'add' ? 'Salvar' : 'Atualizar' }}</button>
+    cdkFocusInitial>{{ data.method == 'add' ? 'Salvar' : 'Atualizar' }}</button>
 </div>
